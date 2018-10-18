@@ -4,5 +4,6 @@
    * Exemple : Nom <br>
 	     <input type="text" ng-model='nom'> {{nom}} 
 
-	     **ce code permet d'afficher la valeur saisie dans l'input**
+	     **ce code permet d'afficher la valeur saisie dans l'input ce mécanisme est appellé data binding**
 
+*
