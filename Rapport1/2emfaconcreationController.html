@@ -22,22 +22,29 @@
   		var MyCoche = angular.module('MyCoche', []);
    // Création de module angularjs 
   		
-   // Création de route 
-   			MyCoche.config(function ($routeProvider) {
-   				
-   			})
-   // Création de route 
 
-   // Création de controller ( le controlleur nai du module)
-   		MyCoche.controller('Coche1erController', function($scope){
-   			$scope.voitures = [
-   				{nom:'TOYOTA',prix:15000000},
-   				{nom:'KIA MOTORS',prix:10000000},
-   				{nom:'MERCEDESS',prix:700000},
-   				{nom:'BMW X4',prix:60000000} ,
-   			    {nom:'RENAULT',prix:3000000}
-   			];
-   		})
+   // Création de controller ( le controlleur nai du module) de la deuxième manière
+    var MesControllers = {};
+	    MesControllers.Coche1erController=function($scope){
+	    	$scope.voitures = [
+	   				{nom:'TOYOTA',prix:15000000},
+	   				{nom:'KIA MOTORS',prix:10000000},
+	   				{nom:'MERCEDESS',prix:700000},
+	   				{nom:'BMW X4',prix:60000000} ,
+	   			    {nom:'RENAULT',prix:3000000}
+	   			];
+	    } 
+
+	    MesControllers.Coche2erController=function($scope){
+	    	$scope.moto = [
+	   				{nom:'TOYOTA',prix:150},
+	   				{nom:'KIA MOTORS',prix:100},
+	   				{nom:'MERCEDESS',prix:700},
+	   				{nom:'BMW X4',prix:600} ,
+	   			    {nom:'RENAULT',prix:300}
+	   			];
+	    } 
+	   		MyCoche.controller(MesControllers);
    // Création de controller 
 
   	</script>
@@ -54,6 +61,24 @@
 		
 		<ul>
 			<li ng-repeat="V in voitures | filter:nom"> {{ V.nom }} - {{ V.prix | number : fractionSize }}  FCFA</li>
+		</ul>
+
+	  <br>
+	  <!-- div englobant la vue -->
+	</div>
+
+
+	<div ng-controller="Coche2erController">
+		<!-- div englobant la vue -->
+			
+		Voitures en ventes <br>
+		<input type="text" ng-model='nom2' > {{nom2}}
+
+	 
+		<p class="text-muted text-center"> Liste des voitures</p>
+		
+		<ul>
+			<li ng-repeat="V1 in moto | filter:nom2"> {{ V1.nom }} - {{ V1.prix | number : fractionSize }}  FCFA</li>
 		</ul>
 
 	  <br>
